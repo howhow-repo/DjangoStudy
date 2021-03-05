@@ -37,12 +37,12 @@ def int_month_rederict(request,month):
 
 def month_challenges(request,month):
     challenge = None
-    try:
-        challenge = month_challenges_table[month]
+    # try:
+    challenge = month_challenges_table[month]
 
-        return render(request,"challenges/challenge.html",{
-            "this_month":month,
-            "challenge":challenge,
-        })
-    except:
-        return HttpResponseNotFound("no such month support!")
+    return render(request,"challenges/challenge.html",{
+        "this_month":month,
+        "challenge":challenge,
+    })
+    # except:
+    #     return HttpResponseNotFound("no such month support!")
