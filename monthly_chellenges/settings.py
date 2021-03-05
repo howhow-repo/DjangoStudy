@@ -61,6 +61,7 @@ TEMPLATES = [
             # put import dir for special templates;
             # if you have templates for your own apps, use <INSTALLED_APPS> list above,
             # django recognize the templates in apps we built;
+            BASE_DIR / "templates"
         ],
         'APP_DIRS': True,
         'OPTIONS': {
