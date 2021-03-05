@@ -29,8 +29,11 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# here, to let django recognize the templates in apps we built
 INSTALLED_APPS = [
+    'challenges',
+
+    # builtin apps ↓
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,7 +57,11 @@ ROOT_URLCONF = 'monthly_chellenges.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            # put import dir for special templates;
+            # if you have templates for your own apps, use <INSTALLED_APPS> list above,
+            # django recognize the templates in apps we built;
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseNotFound,HttpResponseRedirect
 from django.urls import reverse
+from django.template.loader import render_to_string
 from enum import Enum
 
 month_challenges_table = {
@@ -41,6 +42,10 @@ def month_challenges(request,month):
     challenge = None
     try:
         challenge = month_challenges_table[month]
-        return HttpResponse(challenge)
+
+        return render(request,"challenges/challenge.html",{
+            "this_month":month,
+            "the_challenge":challenge,
+        })
     except:
         return HttpResponseNotFound("no such month support!")
