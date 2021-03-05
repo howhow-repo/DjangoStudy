@@ -21,13 +21,10 @@ month_challenges_table = {
 }
 
 def index(request):
-    list_item = ''
     months = list(month_challenges_table.keys())
-    for month in months:
-        month_path = reverse("month-challenges",args = [month])
-        list_item += f"<li><a href=\"{month_path}\">{month}</a></li>"
-    response_data = f"<ul>{list_item}</ul>"
-    return HttpResponse(response_data)
+    return render(request,"challenges/index.html",{
+        "months":months,
+    })
 
 def int_month_rederict(request,month):
     months = list(month_challenges_table.keys())
@@ -45,7 +42,7 @@ def month_challenges(request,month):
 
         return render(request,"challenges/challenge.html",{
             "this_month":month,
-            "the_challenge":challenge,
+            "challenge":challenge,
         })
     except:
         return HttpResponseNotFound("no such month support!")
