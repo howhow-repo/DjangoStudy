@@ -2,7 +2,7 @@
 
 {% block page_titel %}All Challenges{% endblock %}
 {% block content %}
-        <h1>every month's Challenge</h1>
+        <h1>Every Month's Challenge</h1>
         {% for month in months %}
             <li><a href="{% url "month-challenges" month %}">{{month|title}}</a></li>
         {% endfor %}

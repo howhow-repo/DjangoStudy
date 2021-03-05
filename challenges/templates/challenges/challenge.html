@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Monthly Challenges -- {{this_month|title}}</title>
-</head>
-    <body>
-        <h1>{{this_month|title}}'s Challenge</h1>
-        {% if challenge != None %}
-            <h2>{{challenge}}</h2>
-        {% else  %}
-            <h2>the challenge is blank</h2>
-        {% endif %}
-    </body>
-</html>
+{% extends "base.html" %}
+{% block page_titel %}<title>Monthly Challenges -- {{this_month|title}}</title>{% endblock %}
+{% block content %}
+    <h1>{{this_month|title}}'s Challenge</h1>
+    {% if challenge != None %}
+        <h2>{{challenge}}</h2>
+    {% else  %}
+        <h2>the challenge is blank</h2>
+    {% endif %}
+    
+    <li><a href="{% url "challenges-index" %}">back to index</a></li>
+{% endblock %}
